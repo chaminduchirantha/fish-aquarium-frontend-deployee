@@ -27,7 +27,7 @@ const FeedbackForm: React.FC = () => {
     };
 
      try {
-      const res = await feedabckSave(feedbackData);
+      await feedabckSave(feedbackData);
       alert("Feedback Submitted Successfully!");
 
       // Clear Form

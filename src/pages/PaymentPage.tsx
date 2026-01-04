@@ -7,7 +7,7 @@ import { useAuth } from "../context/authContext";
 
 export default function PaymentPage() {
   const { state } = useLocation();
-  const navigate = useNavigate();
+  useNavigate();
 
   // Get amount from navigation state or use default
   const orderAmount = state?.amount || 0;
@@ -385,19 +385,19 @@ export default function PaymentPage() {
           <p className="text-sm font-semibold text-gray-600 mb-6">Trusted by thousands of customers worldwide</p>
           <div className="flex items-center justify-center gap-10">
             <div className="flex flex-col items-center gap-2 group cursor-pointer">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+              <div className="w-14 h-14  from-green-100 to-emerald-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                 <Shield className="w-7 h-7 text-green-600" strokeWidth={2.5} />
               </div>
               <span className="text-xs font-bold text-gray-600">Secure</span>
             </div>
             <div className="flex flex-col items-center gap-2 group cursor-pointer">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+              <div className="w-14 h-14  from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                 <CheckCircle className="w-7 h-7 text-blue-600" strokeWidth={2.5} />
               </div>
               <span className="text-xs font-bold text-gray-600">Verified</span>
             </div>
             <div className="flex flex-col items-center gap-2 group cursor-pointer">
-              <div className="w-14 h-14 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+              <div className="w-14 h-14  from-purple-100 to-pink-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                 <Lock className="w-7 h-7 text-purple-600" strokeWidth={2.5} />
               </div>
               <span className="text-xs font-bold text-gray-600">Encrypted</span>
