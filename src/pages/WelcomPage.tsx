@@ -17,7 +17,8 @@ export default function Hero() {
         ></div>
 
         {/* Dark + Sky Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-sky-900/100 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black via-sky-900 to-transparent"></div>
+
 
 
         {/* BUBBLES */}
@@ -53,35 +54,6 @@ export default function Hero() {
             Discover exotic fishes, designer aquariums, and premium accessories
             crafted to turn your home into a peaceful underwater world.
           </p>
-
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <a
-              href="/fish"
-              className="lg:px-4 lg:py-4 md:px-20 md:py-4 text-center px-18 py-2 rounded-xl bg-sky-500 text-white font-semibold shadow-xl hover:bg-sky-600 transition"
-            >
-              Browse Fishes
-            </a>
-
-            <a
-              href="/access"
-              className="lg:px-8 lg:py-4 md:px-20 md:py-4  px-14 py-4 rounded-xl border border-white/30 bg-sky-500 backdrop-blur-md font-semibold hover:bg-sky-600 transition"
-            >
-              Accessories
-            </a>
-            <a
-              href="/customized"
-              className="lg:px-10 lg:py-4 md:px-20 md:py-4 px-14 py-4 rounded-xl border border-white/30  bg-sky-500  backdrop-blur-md font-semibold hover:bg-sky-600 transition"
-            >
-              Aquarium
-            </a>
-
-            <a
-              href="/feedbacak"
-              className="lg:px-10 lg:py-4 md:px-20 md:py-4 px-14 py-4 rounded-xl border border-white/30  bg-sky-500 backdrop-blur-md font-semibold  hover:bg-sky-600 transition"
-            >
-              Feedback
-            </a>
-          </div>
 
         </div>
 

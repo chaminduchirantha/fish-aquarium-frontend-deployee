@@ -18,7 +18,7 @@ export default function Hero() {
         ></div>
 
         {/* Dark + Sky Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/100 via-sky-900/100 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black via-sky-900 to-transparent"></div>
 
 
         {/* BUBBLES */}
