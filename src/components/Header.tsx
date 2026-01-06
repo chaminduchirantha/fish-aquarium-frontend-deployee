@@ -88,7 +88,7 @@ export default function AnjalFarmHero() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-3">
           <Link
             to="/login"
-            className="text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-blue-600 hover:to-sky-500 px-5 py-2 rounded-lg shadow-lg transition-all"
+            className="text-sm font-semibold text-white bg-linear-to-r from-sky-500 to-blue-600 hover:from-blue-600 hover:to-sky-500 px-5 py-2 rounded-lg shadow-lg transition-all"
           >
             Get Started 
           </Link>
