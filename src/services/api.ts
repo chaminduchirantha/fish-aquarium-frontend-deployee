@@ -4,7 +4,7 @@
 import axios from "axios"
 
 const api = axios.create({
-  baseURL: "https://fish-aquarium-frontend-deployee.vercel.app",
+  baseURL: "https://fish-aquarium-blue.vercel.app/api/v1",
   withCredentials: true 
 })
 
