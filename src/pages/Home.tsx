@@ -38,19 +38,14 @@ export default function Hero() {
 
         {/* CONTENT */}
         <div className="relative z-10 max-w-5xl px-8 lg:px-40">
-
-          <span className="inline-block mb-6 px-4 py-2 text-sm  rounded-full bg-sky-400/20 text-sky-200 font-medium">
-            Premium Aquarium Lifestyle
-          </span>
-
-          <h1 className="text-2xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+          <h1 className="text-2xl md:text-5xl lg:text-6xl text-center lg:text-left md:text-left font-extrabold leading-tight">
             Bring the Ocean
             <span className="block text-sky-300">
               Into Your Living Space .
             </span>
           </h1>
 
-          <p className="mt-6 text-sm max-w-lg md:text-xl lg:text-xl  text-sky-100/90">
+          <p className="mt-6 text-lg max-w-lg md:text-xl text-center lg:text-left md:text-left lg:text-xl  text-sky-100/90">
             Discover exotic fishes, designer aquariums, and premium accessories
             crafted to turn your home into a peaceful underwater world.
           </p>

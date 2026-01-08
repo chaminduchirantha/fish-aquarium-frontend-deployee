@@ -157,7 +157,7 @@ export default function FishCategorySection() {
       {/* Loading State */}
       {loading && (
         <div className="flex justify-center items-center h-64">
-          <div className="text-lg text-gray-600">Loading fish...</div>
+          <div className="w-12 h-12 border-4 border-sky-400 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
 
