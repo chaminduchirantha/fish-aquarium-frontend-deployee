@@ -99,7 +99,7 @@ export default function CustomTankForm() {
       {/* LEFT SIDE IMAGES + PARAGRAPH */}
       <div className="p-16 flex flex-col mt-20" >
         {/* IMAGE GRID */}
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 md:grid-cols-2 GAP-4">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4">
           <img
             src={image1}
             className= "w-full h-70 object-cover rounded-xl shadow hover:scale-105 transition-transform duration-700"
