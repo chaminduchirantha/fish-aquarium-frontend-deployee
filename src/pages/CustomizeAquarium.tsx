@@ -119,7 +119,7 @@ export default function CustomTankForm() {
         </div>
 
         {/* PARAGRAPH */}
-        <p className="mt-5 text-sky-800 text-lgleading-relaxed lg:text-left md:text-center sm:text-center">
+        <p className="mt-5 text-sky-800 text-lgleading-relaxed lg:text-left md:text-center text-center">
             Choose your ideal custom fish tank design from our stunning collection of colorful and vibrant aquatic themes, each crafted to 
             inspire creativity, relaxation, and a deeper connection with aquatic life. Whether you prefer a natural, planted environment, a sleek modern aesthetic, or a fully personalized concept based on your own imagination, our system allows you to upload your design and customize every detail. You can adjust the shape, size, and materials to suit your available space or visual preferences, ensuring your tank blends perfectly with your home or office environment. Additionally, you can select lighting styles, filtration systems, decorative elements, and advanced smart features such as automatic feeders, temperature monitoring, and water-quality sensors. 
             Every component is designed to help you build a tank that is not only visually stunning but also safe, 
