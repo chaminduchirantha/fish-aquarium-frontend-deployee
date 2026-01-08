@@ -55,21 +55,28 @@ export default function Hero() {
             crafted to turn your home into a peaceful underwater world.
           </p>
 
-          <div className="mt-10 flex gap-6">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
             <a
               href="/fish"
-              className="px-8 py-4 rounded-xl text-sm md:text-md lg:text-md bg-sky-500 text-white font-semibold shadow-xl hover:bg-sky-600 transition"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3 sm:py-4
+                        rounded-xl text-sm sm:text-md
+                        bg-sky-500 text-white font-semibold shadow-xl
+                        hover:bg-sky-600 transition"
             >
               Browse Fishes
             </a>
 
             <a
               href="/access"
-              className="px-8 py-4 rounded-xl border border-white/30 bg-white/10 backdrop-blur-md font-semibold hover:bg-white/20 transition"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3 sm:py-4
+                        rounded-xl border border-white/30
+                        bg-white/10 backdrop-blur-md
+                        font-semibold hover:bg-white/20 transition"
             >
               Accessories
             </a>
           </div>
+
 
         </div>
 

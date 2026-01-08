@@ -17,7 +17,7 @@ export default function FeedbackList() {
   const [index, setIndex] = useState(0);
 
   const VISIBLE_CARDS = 4; // show 4 cards at a time
-  const SLIDE_INTERVAL = 4000; // 4 seconds
+  const SLIDE_INTERVAL = 3000; // 4 seconds
 
   useEffect(() => {
     loadFeedback();
