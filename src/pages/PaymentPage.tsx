@@ -160,7 +160,7 @@ export default function PaymentPage() {
           </div>
 
           <button 
-              onClick={() => window.open(`http://localhost:5000/api/v1/payment/payment-slip/${user.email}`, "_blank")}
+              onClick={() => window.open(`https://fish-aquarium-backend-deployee.vercel.app/api/v1/payment/payment-slip/${user.email}`, "_blank")}
               className="bg-sky-600 cursor-pointer text-white px-6 py-3 rounded-lg shadow hover:bg-sky-700"
             >
               Download Payment Slip
