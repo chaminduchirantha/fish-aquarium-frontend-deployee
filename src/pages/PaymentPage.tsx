@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CreditCard, Calendar, User, Lock, Phone, Mail, AlertCircle, CheckCircle, Shield } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import image from "../assets/pexels-shvetsa-4482900.jpg";
-import { paymentSave } from "../services/payment";
+import { paymentSave, downloadPaymentSlip } from "../services/payment";
 import { useAuth } from "../context/authContext";
 
 export default function PaymentPage() {
@@ -27,6 +27,25 @@ export default function PaymentPage() {
 
   const { user } = useAuth();
 
+  const handleDownloadSlip = async () => {
+    try {
+      setLoading(true);
+      const blob = await downloadPaymentSlip(user.email);
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `payment-slip-${new Date().getTime()}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error: any) {
+      const errorMessage = error.response?.data?.message || "Failed to download payment slip. Please try again.";
+      setAlert({ type: "error", message: errorMessage });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -160,10 +179,11 @@ export default function PaymentPage() {
           </div>
 
           <button 
-              onClick={() => window.open(`https://fish-aquarium-backend-deployee.vercel.app/api/v1/payment/payment-slip/${user.email}`, "_blank")}
-              className="bg-sky-600 cursor-pointer text-white px-6 py-3 rounded-lg shadow hover:bg-sky-700"
+              onClick={handleDownloadSlip}
+              disabled={loading}
+              className="bg-sky-600 cursor-pointer text-white px-6 py-3 rounded-lg shadow hover:bg-sky-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
-              Download Payment Slip
+              {loading ? "Downloading..." : "Download Payment Slip"}
           </button>
         </div>
       </div>

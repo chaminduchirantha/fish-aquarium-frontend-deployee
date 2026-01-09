@@ -21,3 +21,10 @@ export const getAllPayment = async (page: number, limit: number) => {
   const res = await api.get(`/payment/allPayment?page=${page}&limit=${limit}`);
   return res.data;
 };
+
+export const downloadPaymentSlip = async (email: string) => {
+  const res = await api.get(`/payment/payment-slip/${email}`, {
+    responseType: 'blob'
+  });
+  return res.data;
+};
