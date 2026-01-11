@@ -62,7 +62,7 @@ function PopuationList() {
                     <div className="flex items-center justify-between w-full">
                       <h3 className="text-md font-semibold text-sky-800">Accessoris in the aquarium</h3>
                     </div>
-                    <p className="text-gray-600 font-semibold text-sm leading-relaxed">Predatory fish play a vital role in regulating prey populations, driving an "evolutionary arms race" that shapes the survival traits of other species. Eg - Oscar , arovana , snack heads</p>
+                    <p className="text-gray-600 font-semibold text-sm leading-relaxed">Aquarium Accessories play a vital role in maintaining a healthy, attractive, and well-balanced aquarium environment. From filtration systems and air pumps to decorative items.</p>
                     <a href="/access"><button className='bg-sky-600 w-full rounded-4xl px-2 py-3 mb-2 mt-5 text-md cursor-pointer' >Get Info</button></a>
 
                   </div>
