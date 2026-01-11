@@ -223,7 +223,7 @@ export default function FishCategorySection() {
                           qty: 1,
                         })
                       }
-                      className="w-full flex items-center justify-center gap-2 bg-gray-900 hover:bg-black text-white px-4 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-gray-200 hover:shadow-gray-300"
+                      className="w-full flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 text-white px-4 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-gray-200 hover:shadow-gray-300"
                     >
                       <ShoppingCart size={18} strokeWidth={2.5} />
                       <span>Add to Cart</span>
@@ -238,7 +238,7 @@ export default function FishCategorySection() {
                         qty: 1,
                         image: fish.imageUrl,
                       }}
-                      className="w-full flex items-center justify-center gap-2 bg-white border-2 border-gray-100 hover:border-gray-900 text-gray-600 hover:text-gray-900 px-4 py-3 rounded-xl font-semibold transition-all duration-300"
+                      className="w-full flex items-center justify-center gap-2 bg-white border-2 border-gray-100 hover:border-sky-700 text-gray-600 hover:text-gray-900 px-4 py-3 rounded-xl font-semibold transition-all duration-300"
                     >
                       <List size={18} strokeWidth={2.5} />
                       <span>Order Now</span>
