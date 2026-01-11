@@ -2,6 +2,7 @@
 
 import sectionImage from '../assets/beautiful-group-fish-underwater.jpg'
 import FeedbackList from '../components/FeedbackList'
+import PopuationList from '../components/PopuationList'
 
 export default function Hero() {
 
@@ -95,7 +96,11 @@ export default function Hero() {
        
 
       </section>
-        <section className='py-16 bg-gray-50'>
+
+      <section>
+          <PopuationList/>
+      </section>
+      <section className='py-16 bg-gray-50'>
             <FeedbackList />
       </section>
 
