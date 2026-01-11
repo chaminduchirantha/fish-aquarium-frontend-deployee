@@ -169,39 +169,52 @@ export default function FishCategorySection() {
               <div className="text-lg text-gray-600">No fish found in this category</div>
             </div>
           ) : ( */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {fishList.map((fish) => (
-                <div
-                  key={fish._id}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 relative"
-                >
-                  <div className="h-70 w-full overflow-hidden">
-                    <img
-                      src={fish.imageUrl}
-                      alt={fish.fishName}
-                      className="w-full h-full object-cover transform hover:scale-105 transition duration-500"
-                    />
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+            {fishList.map((fish) => (
+              <div
+                key={fish._id}
+                className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden"
+              >
+                {/* Image Container with Zoom Effect */}
+                <div className="h-64 w-full overflow-hidden relative bg-gray-50">
+                  <span className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase text-gray-800 shadow-sm">
+                    {fish.fishCategory}
+                  </span>
+                  <img
+                    src={fish.imageUrl}
+                    alt={fish.fishName}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-out"
+                  />
+                </div>
 
-                  <div className="p-5 space-y-3">
-                    <div className="flex items-center justify-between w-full">
-                      <h3 className="text-md font-semibold text-sky-800">
+                {/* Content Section */}
+                <div className="p-6 flex flex-col grow">
+                  <div className="flex-col grow">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-bold text-gray-900 leading-tight">
                         {fish.fishName}
                       </h3>
-                      <span className="bg-blue-100 text-blue-700 px-3 font-bold py-2 rounded-2xl text-sm whitespace-nowrap">
-                        {fish.fishCategory}
-                      </span>
                     </div>
 
-                    <h4 className="text-md text- font-semibold mb-3 text-sky-800">
-                        Pair of Fish : {fish.price}
-                    </h4>
-                    <p className="text-gray-600 font-semibold text-sm leading-relaxed">
+                    <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">
                       {fish.description}
                     </p>
 
-                  
-                    <button  onClick={() =>
+                    <div className="flex items-baseline gap-1 mb-6">
+                      <span className="text-2xl font-extrabold text-gray-900">
+                        {fish.price}
+                      </span>
+                      <span className="text-sm font-medium text-gray-400">
+                        / Pair
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="space-y-3 mt-auto">
+                    {/* Primary Action: Add to Cart */}
+                    <button
+                      onClick={() =>
                         addToCart({
                           _id: fish._id,
                           fishName: fish.fishName,
@@ -209,27 +222,32 @@ export default function FishCategorySection() {
                           imageUrl: fish.imageUrl,
                           qty: 1,
                         })
-                      } className="flex items-center justify-center gap-2 mt-3 cursor-pointer bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-full w-full transition-all duration-300">
-                      <ShoppingCart size={18} />
-                      Add to Cart
+                      }
+                      className="w-full flex items-center justify-center gap-2 bg-gray-900 hover:bg-black text-white px-4 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-gray-200 hover:shadow-gray-300"
+                    >
+                      <ShoppingCart size={18} strokeWidth={2.5} />
+                      <span>Add to Cart</span>
                     </button>
+
+                    {/* Secondary Action: Order Now */}
                     <Link
                       to="/ordersFish"
                       state={{
                         fishName: fish.fishName,
                         price: parsePrice(fish.price),
                         qty: 1,
-                        image: fish.imageUrl
+                        image: fish.imageUrl,
                       }}
-                      className="flex items-center justify-center gap-2 mt-3 cursor-pointer bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-full w-full transition-all duration-300"
+                      className="w-full flex items-center justify-center gap-2 bg-white border-2 border-gray-100 hover:border-gray-900 text-gray-600 hover:text-gray-900 px-4 py-3 rounded-xl font-semibold transition-all duration-300"
                     >
-                      <List size={18} />
-                      Order Now Fish
+                      <List size={18} strokeWidth={2.5} />
+                      <span>Order Now</span>
                     </Link>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
           {/* )} */}
         </>
       )}
