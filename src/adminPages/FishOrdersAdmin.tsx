@@ -62,7 +62,7 @@ export default function FishOrders(){
 
         {/* DOWNLOAD REPORT BUTTON */}
         <button
-          onClick={() => window.open("http://localhost:5000/api/v1/report/pdf", "_blank")}
+          onClick={() => window.open("https://fish-aquarium-backend-deployee.vercel.app/api/v1/report/pdf", "_blank")}
           className="flex items-center gap-3 px-6 py-4 bg-white border border-slate-200 text-slate-700 rounded-2xl font-bold hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 shadow-sm active:scale-95"
         >
           <i className="bx bxs-file-pdf text-xl text-rose-500"></i>
