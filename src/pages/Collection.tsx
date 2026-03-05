@@ -7,114 +7,99 @@ import image4 from '../assets/closeup-shot-yellow-cichlidae-cichlid-home-aquariu
 
 const CardSection: React.FC = () => {
   return (
-    <section className="bg-gray-100 w-full min-h-screen flex flex-col items-center py-10 px-6 " id="collections">
-      {/* Header Section */}
-      <header className="text-center ">
-        <h1 className="text-5xl font-bold  text-sky-800  mt-9">
-          Explore Our Collections
-        </h1>
-        <p className="text-gray-600 max-w-2xl mx-auto mt-9">
-          Discover our smart aquarium solutions from intelligent fish care
-          systems to automated tank management tools that make your aquarium
-          experience easier and more enjoyable.
-        </p>
-      </header>
+    <section className="bg-slate-50 w-full min-h-screen flex flex-col items-center py-20 px-6" id="collections">
+    <header className="text-center mb-16">
+      <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 mt-4 tracking-tight">
+        Explore Our <span className="text-sky-600">Collections</span>
+      </h1>
+      <p className="text-slate-500 max-w-2xl mx-auto mt-6 text-lg leading-relaxed">
+        Elevate your aquatic lifestyle with our intelligent care systems and 
+        automated management tools—precision engineered for the modern hobbyist.
+      </p>
+    </header>
 
-      {/* Main Content */}
-      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch mt-10">
-        {/* Video Section */}
-        <div className="flex justify-center items-center">
-          <div className="relative w-full max-w-lg h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-xl">
+    <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      {/* Left Side: Featured Video Card */}
+      <div className="lg:col-span-5 flex justify-center sticky top-10">
+        <div className="relative group w-full rounded-4xl overflow-hidden shadow-2xl bg-white p-3 border border-slate-200">
+          <div className="relative h-[500px] md:h-[650px] rounded-3xl overflow-hidden">
             <video
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
               src={video1}
               autoPlay
               loop
               muted
               playsInline
             ></video>
-          </div>
-        </div>
-
-        {/* Cards Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* Card 1 */}
-          <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transform transition-all hover:-translate-y-2 duration-300 flex flex-col items-center text-center">
-            <img
-              className="h-40 w-full object-cover rounded-t-xl"
-              src={image4}
-              alt="Smart Monitoring"
-            />
-            <div className="p-4">
-              <h2 className="font-bold text-lg mb-2  text-black">
-                Explore Our Fishes
-              </h2>
-              <p className="text-gray-600 text-sm mb-6">
-                Browse our beautiful collection of healthy, vibrant aquarium fish,
-                carefully selected to suit tanks of all sizes.
-              </p>
-              <Link
-                to="fishes"
-                className="text-white px-4 py-2 bg-sky-600  rounded-md hover:bg-sky-700 transition"
-              >
-                View More
-              </Link>
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transform transition-all hover:-translate-y-2 duration-300 flex flex-col items-center text-center">
-            <img
-              className="h-40 w-full object-cover rounded-t-xl"
-              src={image1}
-              alt="Automated Feeding"
-            />
-            <div className="p-4">
-              <h2 className="font-bold text-lg mb-2 text-black">
-                Explore The Accssouries
-              </h2>
-              <p className="text-gray-600 text-sm mb-6">
-                Find high-quality aquarium accessories including filters, lights,
-                decorations, and tools for perfect tank maintenance.
-              </p>
-              <Link
-                to="accessories"
-                className="text-white px-4 py-2 bg-sky-600  rounded-md hover:bg-sky-700  transition"
-              >
-                View More
-              </Link>
-            </div>
-          </div>
-
-          
-
-          {/* Card 4 */}
-          <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transform transition-all hover:-translate-y-2 duration-300 flex flex-col items-center text-center">
-            <img
-              className="h-40 w-full object-cover rounded-t-xl"
-              src={image3}
-              alt="Smart Water Circulation"
-            />
-            <div className="p-4">
-              <h2 className="font-bold text-lg mb-2 text-black">
-                Smart Auarium Maintenance
-              </h2>
-
-              <p className="text-gray-600 text-sm mb-6">
-                Customize your aquarium with smart maintenance features designed to
-                keep your tank clean, healthy, and hassle-free.
-              </p>
-              <a
-                href="/customized"
-                className="px-4 py-2 bg-sky-600  rounded-md hover:bg-sky-700 transition text-white"
-              >
-                View More
-              </a>
+            {/* Overlay for a high-end feel */}
+            <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
+            <div className="absolute bottom-8 left-8">
+              <p className="text-white text-xl font-medium">Smart Technology</p>
+              <p className="text-white/80 text-sm">Experience the future of aquatics</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+
+      {/* Right Side: Collection Cards */}
+      <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        {/* Card 1: Fishes */}
+        <div className="group bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:border-sky-100 transition-all duration-500 p-2">
+          <div className="overflow-hidden rounded-2xl h-52">
+            <img className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" src={image4} alt="Fishes" />
+          </div>
+          <div className="p-6">
+            <h2 className="font-bold text-2xl mb-3 text-slate-800">Elite Species</h2>
+            <p className="text-slate-500 text-sm leading-relaxed mb-6">
+              Hand-selected, vibrant aquarium fish curated for health and elegance.
+            </p>
+            <Link to="fishes" className="inline-flex items-center text-sky-600 font-semibold hover:text-sky-700 group/btn">
+              View Collection 
+              <span className="ml-2 transform group-hover/btn:translate-x-1 transition-transform">→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Card 2: Accessories */}
+        <div className="group bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:border-sky-100 transition-all duration-500 p-2">
+          <div className="overflow-hidden rounded-2xl h-52">
+            <img className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500" src={image1} alt="Accessories" />
+          </div>
+          <div className="p-6">
+            <h2 className="font-bold text-2xl mb-3 text-slate-800">Pro Accessories</h2>
+            <p className="text-slate-500 text-sm leading-relaxed mb-6">
+              Precision tools and artistic decorations for the ultimate tank setup.
+            </p>
+            <Link to="accessories" className="inline-flex items-center text-sky-600 font-semibold hover:text-sky-700 group/btn">
+              View Collection 
+              <span className="ml-2 transform group-hover/btn:translate-x-1 transition-transform">→</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Card 3: Maintenance (Spans across or stays grid) */}
+        <div className="group bg-white rounded-3xl shadow-xl transition-all duration-500 p-2 md:col-span-2">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-1/2 overflow-hidden rounded-2xl h-60 md:h-full min-h-60">
+              <img className="h-full w-full object-cover  group-hover:opacity-100 transition-opacity" src={image3} alt="Maintenance" />
+            </div>
+            <div className="p-8 md:w-1/2">
+              <h2 className="font-bold text-2xl mb-3 text-black">Smart Maintenance</h2>
+              <p className="text-black text-sm leading-relaxed mb-6">
+                Full automation at your fingertips. Keep your ecosystem pristine with our custom-engineered smart solutions.
+              </p>
+              <a href="/customized" className="inline-block bg-sky-600 text-white px-8 py-3 rounded-xl font-medium hover:bg-sky-500 transition-colors shadow-lg shadow-sky-900/20">
+                Explore Solutions
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
   );
 };
 

@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-import { Dialog, DialogPanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { useState, Fragment } from 'react'
+import { Dialog, DialogPanel, Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 import { Link } from "react-router-dom";
+import { SparklesIcon } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/home' },
@@ -18,14 +19,17 @@ export default function AnjalFarmHero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-sky-700 border-b border-white/20 shadow-md">
-      <nav aria-label="Global" className="flex items-center justify-between p-2 lg:px-8">
+    <header className="fixed top-0 inset-x-0 z-100 bg-sky-900 backdrop-blur-md border-b border-white/10">
+      <nav aria-label="Global" className="flex items-center justify-between p-3 lg:px-12 max-w-7xl mx-auto">
 
-        {/* Logo */}
+        {/* Logo Section */}
         <div className="flex lg:flex-1 items-center">
-          <Link to="/" className="flex items-center gap-3">
-            <span className="text-white font-bold text-xl tracking-wide">
-              Aqua World
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="bg-sky-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform duration-300">
+              <SparklesIcon className="w-6 h-6 text-white" />
+            </div>
+            <span className="text-white font-extrabold text-2xl tracking-tight">
+              Aqua<span className="text-sky-400">World</span>
             </span>
           </Link>
         </div>
@@ -35,127 +39,110 @@ export default function AnjalFarmHero() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="rounded-md p-2.5 text-white hover:text-white cursor-pointer"
+            className="rounded-full p-2 text-gray-200 hover:bg-white/10 transition-colors"
           >
             <Bars3Icon className="w-7 h-7" />
           </button>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:gap-x-10 items-center">
-
+        <div className="hidden lg:flex lg:gap-x-8 items-center">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
-              className="font-semibold text-white hover:text-yellow-300 transition-colors"
+              className="relative text-sm font-medium text-gray-200 hover:text-white transition-colors py-2 group"
             >
               {item.name}
+              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-sky-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
             </Link>
           ))}
 
-          {/* Dropdown Menu */}
+          {/* Premium Dropdown Menu */}
           <Menu as="div" className="relative">
-            <MenuButton className="text-white font-semibold hover:text-yellow-300 cursor-pointer flex items-center gap-1">
-              Items <ChevronDownIcon className="h-4 w-4" />
+            <MenuButton className="flex items-center gap-1 text-sm font-medium text-gray-200 hover:text-white bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:bg-white/10 transition-all cursor-pointer">
+              Explore <ChevronDownIcon className="h-4 w-4 opacity-70" />
             </MenuButton>
 
-            <MenuItems className="absolute mt-2 w-40 bg-white shadow-lg rounded-md p-2 text-gray-800 z-50">
-              <MenuItem>
-                <a
-                  href="/fish"
-                  className="block px-4 py-2 rounded-md"
-                >
-                  Fishes
-                </a>
-              </MenuItem>
-
-              <MenuItem>
-               
-                  <a
-                    href="/access"
-                    className= "block px-4 py-2 rounded-md"
-                  >
-                    Accessories
-                  </a>
-              </MenuItem>
-            </MenuItems>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-200"
+              enterFrom="transform opacity-0 scale-95"
+              enterTo="transform opacity-100 scale-100"
+              leave="transition ease-in duration-75"
+              leaveFrom="transform opacity-100 scale-100"
+              leaveTo="transform opacity-0 scale-95"
+            >
+              <MenuItems className="absolute right-0 mt-3 w-48 origin-top-right rounded-2xl bg-slate-800 border border-white/10 shadow-2xl p-2 focus:outline-none">
+                <MenuItem>
+                  {({ active }) => (
+                    <Link
+                      to="/fish"
+                      className={`${active ? 'bg-sky-500 text-white' : 'text-gray-300'} block px-4 py-2.5 rounded-xl text-sm transition-colors`}
+                    >
+                      Rare Fishes
+                    </Link>
+                  )}
+                </MenuItem>
+                <MenuItem>
+                  {({ active }) => (
+                    <Link
+                      to="/access"
+                      className={`${active ? 'bg-sky-500 text-white' : 'text-gray-300'} block px-4 py-2.5 rounded-xl text-sm transition-colors`}
+                    >
+                      Premium Kits
+                    </Link>
+                  )}
+                </MenuItem>
+              </MenuItems>
+            </Transition>
           </Menu>
-
         </div>
 
-        {/* CTA Buttons */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-3">
+        {/* CTA Button */}
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
             to="/login"
-            className="text-sm font-semibold text-white bg-linear-to-r from-sky-500 to-blue-600 hover:from-blue-600 hover:to-sky-500 px-5 py-2 rounded-lg shadow-lg transition-all"
+            className="group relative inline-flex items-center justify-center px-6 py-2.5 font-semibold text-white transition-all duration-200 bg-sky-600 rounded-full hover:bg-sky-500 shadow-[0_0_15px_rgba(14,165,233,0.4)] hover:shadow-[0_0_20px_rgba(14,165,233,0.6)]"
           >
-            Get Started 
+            Get Started
           </Link>
-
         </div>
-
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-sky-900/95 backdrop-blur-md text-white p-6">
-
-          <div className="flex items-center justify-between mb-6">
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3">
-              <span className="font-bold text-lg">Aqua World</span>
-            </Link>
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm" />
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-slate-900 shadow-2xl p-8 ring-1 ring-white/10">
+          <div className="flex items-center justify-between mb-10">
+            <span className="font-extrabold text-2xl text-white">Aqua World</span>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-white hover:text-white cursor-pointer"
+              className="rounded-full p-2 text-gray-400 hover:bg-white/10"
             >
-              <XMarkIcon className="w-6 h-6" />
+              <XMarkIcon className="w-7 h-7" />
             </button>
           </div>
 
-          {/* mobile menu links */}
-          <div className="space-y-3">
-
+          <div className="flex flex-col gap-y-4">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block rounded-lg px-4 py-2 text-base font-semibold hover:bg-sky-800/60 transition"
+                className="text-lg font-medium text-gray-300 hover:text-sky-400 transition"
               >
                 {item.name}
               </Link>
             ))}
-
-            {/* Mobile Dropdown (Simple Version) */}
-            <div className="mt-3">
-              <p className="text-sm font-bold text-sky-300">Items</p>
-              <div className="pl-4 space-y-2 mt-2 mb-10">
-                <Link to="/fish" onClick={() => setMobileMenuOpen(false)} className="block ">
-                  Fishes
-                </Link>
-                <Link to="/access" onClick={() => setMobileMenuOpen(false)} className="block ">
-                  Accessories
-                </Link>
-              </div>
-            </div>
-
-            {/* Login + Signup */}
-            <div className="mt-6 flex gap-3">
-              <Link
-                to="/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex-1 text-center bg-sky-500 hover:bg-sky-600 py-2 rounded-md font-semibold"
-              >
-                Login
-              </Link>
-              <Link
-                to="/register"
-                className="flex-1 text-center bg-orange-500 hover:bg-orange-600 py-2 rounded-md font-semibold"
-              >
-                Sign Up
-              </Link>
+            <hr className="border-white/5 my-4" />
+            <Link to="/fish" className="text-gray-400 hover:text-white">Fishes</Link>
+            <Link to="/access" className="text-gray-400 hover:text-white">Accessories</Link>
+            
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              <Link to="/login" className="text-center py-3 rounded-xl bg-white/5 border border-white/10 font-semibold text-white">Login</Link>
+              <Link to="/register" className="text-center py-3 rounded-xl bg-sky-500 font-semibold text-white shadow-lg shadow-sky-500/30">Sign Up</Link>
             </div>
           </div>
         </DialogPanel>
