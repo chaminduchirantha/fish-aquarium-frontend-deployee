@@ -119,7 +119,7 @@ export default function Hero() {
         `}</style>
       </section>
 
-      <section className="relative z-10 py-4 bg-white ">
+      <section className="relative z-10 py-4 bg-white mt-10">
         <div className="max-w-7xl mx-auto px-8">
           <PopuationList />
         </div>
