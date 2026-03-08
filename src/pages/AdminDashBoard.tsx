@@ -162,6 +162,7 @@ const DashboardLayout: React.FC = () => {
             <SidebarLink to="/admin/customers" icon={<i className="bx bx-user-circle text-xl"></i>} label="Customer Base" />
             <SidebarLink to="/admin/orders" icon={<i className="bx bx-shopping-bag text-xl"></i>} label="Fish Orders" />
             <SidebarLink to="/admin/ordersAccess" icon={<i className="bx bx-package text-xl"></i>} label="Accessory Orders" />
+            <SidebarLink to="/admin/payments" icon={<i className="bx bx-credit-card text-xl"></i>} label="Payments" />
             <SidebarLink to="/admin/delivery" icon={<img className="w-5 opacity-70 group-hover:opacity-100 transition-all" src={delivery} />} label="Logistics" />
           </nav>
         </aside>
@@ -204,7 +205,7 @@ const DashboardLayout: React.FC = () => {
               </div>
 
               {/* PREMIUM ANALYTICS VISUALS */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   <div className="lg:col-span-2 bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
                     <div className="flex items-center justify-between mb-8">
                         <h4 className="font-black text-slate-800 uppercase tracking-widest text-xs">Stock Performance</h4>
@@ -231,7 +232,7 @@ const DashboardLayout: React.FC = () => {
                         Generate Report
                     </button>
                   </div>
-              </div>
+              </div> */}
             </div>
           ) : (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
