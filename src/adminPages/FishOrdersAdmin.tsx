@@ -1,6 +1,5 @@
 import { useEffect, useState} from "react";
 import { getAllFishOrder, updateFishOrderStatus } from "../services/fishOrder";
-import axios from "axios";
 
 interface OrderFishList {
   _id: string;
@@ -54,12 +53,11 @@ export default function FishOrders(){
 
   const downloadReport = async () => {
     try {
-      const response = await axios(
-        "https://fish-aquarium-backend-deployee.vercel.app/api/v1/report/pdf",
-        { responseType: "blob" }
+      const response = await fetch( 
+        "https://fish-aquarium-backend-deployee.vercel.app/api/v1/report/pdf"
       );
 
-      const blob = response.data;
+      const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
 
       const a = document.createElement("a");
