@@ -1,5 +1,6 @@
 import { useEffect, useState} from "react";
 import { getAllFishOrder, updateFishOrderStatus } from "../services/fishOrder";
+import axios from "axios";
 
 interface OrderFishList {
   _id: string;
@@ -50,6 +51,28 @@ export default function FishOrders(){
     }
   };
 
+
+  const downloadReport = async () => {
+    try {
+      const response = await axios(
+        "https://fish-aquarium-backend-deployee.vercel.app/api/v1/report/pdf",
+        { responseType: "blob" }
+      );
+
+      const blob = response.data;
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "orders-report.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch (error) {
+      console.error("Download failed", error);
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto p-2 animate-in fade-in duration-700">
   
@@ -62,7 +85,7 @@ export default function FishOrders(){
 
         {/* DOWNLOAD REPORT BUTTON */}
         <button
-          onClick={() => window.open("https://fish-aquarium-backend-deployee.vercel.app/api/v1/report/pdf", "_blank")}
+          onClick={downloadReport}
           className="flex items-center gap-3 px-6 py-4 bg-white border border-slate-200 text-slate-700 rounded-2xl font-bold hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 shadow-sm active:scale-95"
         >
           <i className="bx bxs-file-pdf text-xl text-rose-500"></i>
