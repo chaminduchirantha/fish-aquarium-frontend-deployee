@@ -1,9 +1,9 @@
-import{ useState, type FormEvent } from "react"
+import{ useEffect, useState, type FormEvent } from "react"
 import { useNavigate } from "react-router-dom"
 
 import loginImage from "../assets/freepik__a-vibrant-osca-fish-swims-in-a-clear-tank-bubbles-__26356.png";
 import bgImage from "../assets/top-view-colorful-koi-fishes.jpg";
-import { getMyDetails, login } from "../services/auth";
+import { getMyDetails, googleLogin, login } from "../services/auth";
 import { useAuth } from "../context/authContext";
 import { showErrorAlert, showSuccessAlert } from "../util/alerts";
 
@@ -67,6 +67,44 @@ export default function Login() {
       }
     }
   }
+
+  useEffect(() => {
+    const handleGoogleCallback = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const accessToken = params.get("accessToken");
+      const refreshToken = params.get("refreshToken");
+
+      if (accessToken && refreshToken) {
+        try {
+          localStorage.setItem("accessToken", accessToken);
+          localStorage.setItem("refreshToken", refreshToken);
+
+          const detail = await getMyDetails();
+          
+          const userData = {
+            ...detail.data,
+            roles: detail.data.role    
+          };
+
+          setUser(userData);
+          localStorage.setItem("user", JSON.stringify(detail.data));
+
+          showSuccessAlert("Google Login Successful!");
+
+          if (userData.roles?.includes("ADMIN")) {
+            navigate("/admin");
+          } else {
+            navigate("/");
+          }
+        } catch (error) {
+          console.error("Google Auth Error:", error);
+          showErrorAlert("Failed to fetch user details after Google login.");
+        }
+      }
+    };
+
+    handleGoogleCallback();
+  }, [navigate, setUser]);
 
 
   return (
@@ -143,9 +181,22 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-sky-700 hover:bg-sky-800 disabled:bg-sky-400 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
+            className="w-full bg-sky-700 hover:bg-sky-800 mb-3 disabled:bg-sky-400 text-white font-semibold py-2 px-4 rounded-lg transition duration-200"
           >
             {loading ? 'Logging in...' : 'Login'}
+          </button>
+
+          <button
+            type="button"
+            onClick={googleLogin}
+            className="w-full flex items-center justify-center gap-2 border border-gray-300 bg-white text-black font-medium py-2 px-4 rounded-lg hover:bg-gray-100 transition"
+          >
+            <img
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="google"
+              className="w-5 h-5"
+            />
+            Continue with Google
           </button>
         </form>
 

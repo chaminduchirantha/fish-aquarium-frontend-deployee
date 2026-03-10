@@ -28,4 +28,9 @@ export const refreshTokens = async (refreshToken: string) => {
 }
 
 
+export const googleLogin = () => {
+  // Redirect to backend Google login
+  window.location.href = "https://fish-aquarium-backend-deployee.vercel.app/auth/google"
+}
+
 
