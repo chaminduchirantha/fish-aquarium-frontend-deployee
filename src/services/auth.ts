@@ -26,11 +26,3 @@ export const refreshTokens = async (refreshToken: string) => {
   const res = await api.post("/auth/refresh", { token: refreshToken })
   return res.data
 }
-
-
-export const googleLogin = () => {
-  // Redirect to backend Google login
-  window.location.href = "https://fish-aquarium-backend-deployee.vercel.app/auth/google"
-}
-
-
